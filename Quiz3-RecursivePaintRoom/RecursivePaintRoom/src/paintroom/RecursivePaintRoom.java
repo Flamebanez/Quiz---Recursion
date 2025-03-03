@@ -80,10 +80,20 @@ public class RecursivePaintRoom {
 
   /************************** DO NOT MODIFY ABOVE FUNCTIONS ***************************/
 
-  // TODO: finish the following recursive function:
   public static void recFill(char room[][], int row, int col) {
-    /* Base case: */
-
-    /* Recursive case: */
+    if (row < 0 || row >= room.length || col < 0 || col >= room[0].length) {
+      return;
+    }
+    
+    if (room[row][col] != '.') {
+      return;
+    }
+    
+    room[row][col] = 'O';
+    
+    recFill(room, row - 1, col);
+    recFill(room, row + 1, col);
+    recFill(room, row, col - 1);
+    recFill(room, row, col + 1);
   }
 }
